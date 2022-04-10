@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import * as express from "express";
 import routes from "./routes";
 var compression = require('compression');
