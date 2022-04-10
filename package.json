@@ -1,6 +1,9 @@
 {
   "name": "himnario-api",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.x.x"
+  },
   "description": "Himnario api",
   "scripts": {
     "start": "nodemon src/index.ts",
