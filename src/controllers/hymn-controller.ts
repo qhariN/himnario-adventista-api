@@ -1,30 +1,42 @@
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
-import { History } from "../models/history";
-import { Hymn } from "../models/hymn";
+import { prisma } from '../prisma';
 
 export default class HymnController {
 
-    static getHymnHistory = async (req: Request, res: Response) => {
+    static getHymnHistoryByNumber = async (req: Request, res: Response) => {
         let { id } = req.params
-        let hymn: Hymn
-        let history: History[]
-        const repositoryH = getRepository(Hymn)
-        const repositoryY = getRepository(History)
-        try {
-            hymn = await repositoryH.createQueryBuilder('hymn')
-                .where('hymn.number = :id', { id: id })
-                .getOne()
-            history = await repositoryY.createQueryBuilder('history')
-                .leftJoinAndSelect('history.verse', 'verse')
-                .leftJoinAndSelect('verse.hymn', 'hymn')
-                .select(['verse.number', 'history.position', 'verse.content'])
-                .where('hymn.number = :id', { id: id })
-                .orderBy('history.position', 'ASC')
-                .getMany()
-        } catch (error) {
-            res.status(401).send()
-        }
+        const hymn = await prisma.hymn.findFirst({
+            select: {
+                id: true,
+                number: true,
+                title: true,
+                mp3: true
+            },
+            where: {
+                number: Number(id)
+            }
+        })
+        const history = await prisma.history.findMany({
+            select: {
+                position: true,
+                verse: {
+                    select: {
+                        number: true,
+                        content: true
+                    }
+                }
+            },
+            where: {
+                verse: {
+                    hymn: {
+                        id: hymn.id
+                    }
+                }
+            },
+            orderBy: {
+                position: "asc",
+            }
+        })
         res.send({ hymn: hymn, history: history })
     }
 

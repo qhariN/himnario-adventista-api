@@ -1,7 +1,0 @@
-{
-    "type": "sqlite",
-    "database": "./himnario.db",
-    "entities": ["src/models/**/*.ts"],
-    "synchronize": false,
-    "logging": ["query"]
-}

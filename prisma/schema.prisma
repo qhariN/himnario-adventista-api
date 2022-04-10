@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./himnario.db"
+}
+
+model history {
+  id       Int   @id @default(autoincrement())
+  position Int
+  verseId  Int
+  verse    verse @relation(fields: [verseId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model hymn {
+  id        Int     @id @default(autoincrement())
+  number    Int
+  title     String
+  versionId Int
+  mp3       String?
+  version   version @relation(fields: [versionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  verse     verse[]
+}
+
+model language {
+  id      Int       @id @default(autoincrement())
+  name    String
+  version version[]
+}
+
+model verse {
+  id      Int       @id @default(autoincrement())
+  number  Int
+  content String
+  hymnId  Int
+  hymn    hymn      @relation(fields: [hymnId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  history history[]
+}
+
+model version {
+  id         Int      @id @default(autoincrement())
+  name       String
+  languageId Int
+  language   language @relation(fields: [languageId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  hymn       hymn[]
+}
