@@ -2,7 +2,7 @@
   "name": "himnario-api",
   "version": "0.0.0",
   "engines": {
-    "node": "16.x.x"
+    "node": "16.13.x"
   },
   "description": "Himnario api",
   "scripts": {
