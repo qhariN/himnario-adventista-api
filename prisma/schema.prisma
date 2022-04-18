@@ -15,13 +15,14 @@ model history {
 }
 
 model hymn {
-  id        Int     @id @default(autoincrement())
-  number    Int
-  title     String
-  versionId Int
-  mp3       String?
-  version   version @relation(fields: [versionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  verse     verse[]
+  id          Int     @id @default(autoincrement())
+  number      Int
+  title       String
+  versionId   Int
+  mp3Url      String?
+  mp3Filename String?
+  version     version @relation(fields: [versionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  verse       verse[]
 }
 
 model language {
