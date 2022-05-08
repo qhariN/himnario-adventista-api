@@ -1,8 +1,8 @@
-import * as express from "express";
-import routes from "./routes";
-var compression = require('compression');
-var helmet = require('helmet');
-var cors = require('cors');
+import express, { json } from "express"
+import routes from "./routes"
+import compression from "compression"
+import helmet from "helmet"
+import cors from "cors"
 
 //Instancia de express
 const app = express()
@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(helmet())
 app.use(cors())
 app.use(compression())
-app.use(express.json())
+app.use(json())
 
 app.use("/", routes)
 

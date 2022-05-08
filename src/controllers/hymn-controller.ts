@@ -40,10 +40,4 @@ export default class HymnController {
         })
         res.send({ hymn: hymn, history: history })
     }
-
-    // SELECT H.number as hymn, H.title, V.number, Y.position, V.content FROM history Y
-    //     LEFT JOIN verse V ON Y.verseId = V.id
-    //     LEFT JOIN hymn H ON V.hymnId = H.id
-    // WHERE H.number = 8
-    // ORDER BY H.number, Y.position;
 }

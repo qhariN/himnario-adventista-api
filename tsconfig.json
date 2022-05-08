@@ -4,6 +4,7 @@
         "rootDir": "./src",
         "sourceMap": true,
         "module": "commonjs",
+        "esModuleInterop": true,
         "target": "es5",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
