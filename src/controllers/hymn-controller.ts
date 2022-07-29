@@ -17,27 +17,31 @@ export default class HymnController {
                 number: Number(id)
             }
         })
-        const history = await prisma.history.findMany({
-            select: {
-                position: true,
-                verse: {
-                    select: {
-                        number: true,
-                        content: true
+        if (hymn) {
+            const history = await prisma.history.findMany({
+                select: {
+                    position: true,
+                    verse: {
+                        select: {
+                            number: true,
+                            content: true
+                        }
                     }
-                }
-            },
-            where: {
-                verse: {
-                    hymn: {
-                        id: hymn.id
+                },
+                where: {
+                    verse: {
+                        hymn: {
+                            id: hymn.id
+                        }
                     }
+                },
+                orderBy: {
+                    position: "asc",
                 }
-            },
-            orderBy: {
-                position: "asc",
-            }
-        })
-        res.send({ hymn: hymn, history: history })
+            })
+            res.send({ hymn: hymn, history: history })
+        } else {
+            res.status(404).send({ message: 'Hymn not found' })
+        }
     }
 }

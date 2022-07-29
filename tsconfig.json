@@ -3,23 +3,12 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "sourceMap": true,
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "target": "es5",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "resolveJsonModule": true,
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-        "lib": [
-            "dom",
-            "es2017"
-        ]
+        "strict": true,
+        "lib": ["esnext"],
+        "esModuleInterop": true
     },
     "exclude": [
         "dist",
-        "build",
         "node_modules"
     ],
 }
