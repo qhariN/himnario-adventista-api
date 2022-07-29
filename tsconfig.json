@@ -5,6 +5,8 @@
         "sourceMap": true,
         "strict": true,
         "lib": ["esnext"],
+        "target": "es6",
+        "module": "commonjs",
         "esModuleInterop": true
     },
     "exclude": [
