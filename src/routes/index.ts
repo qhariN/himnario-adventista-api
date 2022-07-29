@@ -1,8 +1,8 @@
-import { Router } from "express";
-import hymn from "./hymn-router";
+import { Router } from 'express'
+import hymn from './hymn-router'
 
 const routes = Router()
 
-routes.use("/hymn", hymn)
+routes.use('/hymn', hymn)
 
 export default routes
