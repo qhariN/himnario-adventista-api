@@ -20,6 +20,7 @@ model hymn {
   title       String
   versionId   Int
   mp3Url      String?
+  mp3UrlInstr String?
   mp3Filename String?
   version     version @relation(fields: [versionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   verse       verse[]

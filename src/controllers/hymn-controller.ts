@@ -10,6 +10,7 @@ export default class HymnController {
         number: true,
         title: true,
         mp3Url: true,
+        mp3UrlInstr: true,
         mp3Filename: true
       },
       where: {
