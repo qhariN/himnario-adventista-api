@@ -21,6 +21,7 @@ export default class HymnController {
       const history = await prisma.history.findMany({
         select: {
           position: true,
+          timestamp: true,
           verse: {
             select: {
               number: true,
