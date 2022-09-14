@@ -8,10 +8,11 @@ datasource db {
 }
 
 model history {
-  id       Int   @id @default(autoincrement())
-  position Int
-  verseId  Int
-  verse    verse @relation(fields: [verseId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id        Int   @id @default(autoincrement())
+  position  Int
+  timestamp Int?
+  verseId   Int
+  verse     verse @relation(fields: [verseId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model hymn {
