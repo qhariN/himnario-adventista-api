@@ -41,4 +41,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.KEY }}
-        script: 'cd ~/github && sh deploy.sh ${{ github.event.repository.name }} && cd ${{ github.event.repository.name }} && npx prisma generate'
+        script: 'cd ~/github/${{ github.event.repository.name }} && npx prisma generate && cd ../ && sh deploy.sh ${{ github.event.repository.name }} '
