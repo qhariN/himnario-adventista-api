@@ -2,6 +2,17 @@ import { Request, Response } from 'express'
 import { prisma } from '../prisma'
 
 export default class HymnController {
+  static getHymns = async (req: Request, res: Response) => {
+    const hymns = await prisma.hymn.findMany({
+      select: {
+        id: true,
+        number: true,
+        title: true
+      }
+    })
+    res.send(hymns)
+  }
+
   static getHymnHistoryByNumber = async (req: Request, res: Response) => {
     const { id } = req.params
     const hymn = await prisma.hymn.findFirst({
