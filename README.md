@@ -12,20 +12,17 @@ La API se encuentra en la siguiente dirección: [https://sdah.my.to/hymn](https:
 
 La música está hosteada en [Google Drive](https://drive.google.com/drive/folders/13Nvg5c6K7sR0gcOxYQk-BXoRkR82nzJV?usp=sharing) y está disponible para su descarga.
 
-<br>
-
 ## Endpoints
----
 
 | Método | Endpoint | Descripción |
 | --- | --- | --- |
-| <img src="https://img.shields.io/badge/GET-0D96F6?style=for-the-badge" alt="GET"> | [`/hymn`](https://sdah.my.to/hymn) | Devuelve un arreglo con todas las canciones. |
+| <img src="https://img.shields.io/badge/GET-0D96F6?style=for-the-badge" alt="GET"> | [/hymn](https://sdah.my.to/hymn) | Devuelve un arreglo con todas las canciones. |
 
 ### Responses
 
 | Código | Response |
 | --- | --- |
-| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [`Hymn`](#hymn-schema) |
+| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [Hymn](#hymn-schema) |
 
 ### Esquema
 
@@ -43,13 +40,13 @@ interface Hymn = {
 
 | Método | Endpoint | Descripción |
 | --- | --- | --- |
-| <img src="https://img.shields.io/badge/GET-0D96F6?style=for-the-badge" alt="GET"> | [`/hymn/:number`](https://sdah.my.to/hymn/1) | Devuelve la canción con el número especificado. |
+| <img src="https://img.shields.io/badge/GET-0D96F6?style=for-the-badge" alt="GET"> | [/hymn/:number](https://sdah.my.to/hymn/1) | Devuelve la canción con el número especificado. |
 
 ### Responses
 
 | Código | Response |
 | --- | --- |
-| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [`HymnHistory`](#hymn-history-schema) |
+| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [HymnHistory](#hymn-history-schema) |
 | <img src="https://img.shields.io/badge/404-FF1744?style=for-the-badge" alt="404"> | Hymn not found |
 
 ### Esquema
