@@ -25,13 +25,14 @@ La música está hosteada en [Google Drive](https://drive.google.com/drive/folde
 
 | Código | Response |
 | --- | --- |
-| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [`Hymn`](#hymn) |
+| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [`Hymn`](#hymn-schema) |
 
 ### Esquema
-#### Hymn
+
+<a name="hymn-schema"></a>
 
 ```typescript
-{
+interface Hymn = {
   id:     number  // ID de la canción
   number: number  // número de la canción
   title:  string  // título de la canción
@@ -48,14 +49,15 @@ La música está hosteada en [Google Drive](https://drive.google.com/drive/folde
 
 | Código | Response |
 | --- | --- |
-| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [`HymnHistory`](#hymnhistory) |
+| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [`HymnHistory`](#hymn-history-schema) |
 | <img src="https://img.shields.io/badge/404-FF1744?style=for-the-badge" alt="404"> | Hymn not found |
 
 ### Esquema
-#### HymnHistory
+
+<a name="hymn-history-schema"></a>
 
 ```typescript
-{
+interface HymnHistory =  {
   hymn: {
     id:          number  // ID de la canción
     number:      number  // número de la canción
