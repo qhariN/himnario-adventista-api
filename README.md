@@ -2,11 +2,11 @@
 
 ### ¿Qué es?
 
-Es una API que permite obtener la letra y la música (instrumental y cantado) de las canciones del Himnario Adventista.
+Es una API que permite obtener la letra y la música (instrumental y cantado) de las canciones del Himnario Adventista **Edición 2009**.
 
 ### ¿Cómo usarla?
 
-La API se encuentra en la siguiente dirección: [https://sdah.my.to/hymn](https://sdah.my.to/hymn).
+La API se encuentra en la siguiente dirección: <https://sdah.my.to/hymn>.
 
 ### ¿Dónde está hosteada la música?
 
@@ -16,42 +16,36 @@ La música está hosteada en [Google Drive](https://drive.google.com/drive/folde
 
 | Método | Endpoint | Descripción |
 | --- | --- | --- |
-| <img src="https://img.shields.io/badge/GET-0D96F6?style=for-the-badge" alt="GET"> | [/hymn](https://sdah.my.to/hymn) | Devuelve un arreglo con todas las canciones. |
+| ![GET](https://img.shields.io/badge/GET-0D96F6?style=for-the-badge) | [/hymn](https://sdah.my.to/hymn) | Devuelve un arreglo con todas las canciones. |
 
 ### Responses
 
 | Código | Response |
 | --- | --- |
-| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [Hymn](#hymn-schema) |
+| ![200](https://img.shields.io/badge/200-00C853?style=for-the-badge) | [Hymn[]](#esquemas) |
 
-### Esquema
+---
 
-<a name="hymn-schema"></a>
+| Método | Endpoint | Descripción |
+| --- | --- | --- |
+| ![GET](https://img.shields.io/badge/GET-0D96F6?style=for-the-badge) | [/hymn/:number](https://sdah.my.to/hymn/1) | Devuelve la canción con el número especificado. |
+
+### Responses
+
+| Código | Response |
+| --- | --- |
+| ![200](https://img.shields.io/badge/200-00C853?style=for-the-badge) | [HymnHistory](#esquemas) |
+| ![404](https://img.shields.io/badge/404-FF1744?style=for-the-badge)  | Hymn not found |
+
+## Esquemas
 
 ```typescript
 interface Hymn = {
   id:     number  // ID de la canción
   number: number  // número de la canción
   title:  string  // título de la canción
-}[]
+}
 ```
-
----
-
-| Método | Endpoint | Descripción |
-| --- | --- | --- |
-| <img src="https://img.shields.io/badge/GET-0D96F6?style=for-the-badge" alt="GET"> | [/hymn/:number](https://sdah.my.to/hymn/1) | Devuelve la canción con el número especificado. |
-
-### Responses
-
-| Código | Response |
-| --- | --- |
-| <img src="https://img.shields.io/badge/200-00C853?style=for-the-badge" alt="200"> | [HymnHistory](#hymn-history-schema) |
-| <img src="https://img.shields.io/badge/404-FF1744?style=for-the-badge" alt="404"> | Hymn not found |
-
-### Esquema
-
-<a name="hymn-history-schema"></a>
 
 ```typescript
 interface HymnHistory =  {
