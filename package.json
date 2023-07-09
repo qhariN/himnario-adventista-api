@@ -1,0 +1,31 @@
+{
+  "name": "himnario-api",
+  "version": "2.0.0",
+  "description": "Himnario Adventista API",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun --watch src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhormanrus/himnario-adventista-api.git"
+  },
+  "keywords": [
+    "himnario",
+    "adventista",
+    "api"
+  ],
+  "author": "jhormanrus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhormanrus/himnario-adventista-api/issues"
+  },
+  "homepage": "https://github.com/jhormanrus/himnario-adventista-api#readme",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "dependencies": {
+    "regexparam": "^2.0.1"
+  }
+}
