@@ -26,7 +26,6 @@
     "bun-types": "latest"
   },
   "dependencies": {
-    "cromo": "^0.0.4",
-    "regexparam": "^2.0.1"
+    "cromo": "^0.0.4"
   }
 }
