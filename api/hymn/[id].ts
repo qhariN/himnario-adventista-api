@@ -1,7 +1,8 @@
 import Database from 'bun:sqlite'
-import { CromoHandler } from 'cromo'
+import type { CromoHandler, CromoMiddleware } from 'cromo'
+import { cors } from '../../src/middleware/cors'
 
-export const GET: CromoHandler = ({ matchedRoute }) => {
+export const GET: CromoHandler = ({ matchedRoute }, response) => {
   const hymnId = matchedRoute.params.id
 
   const db = new Database('./src/database/himnario.db')
@@ -9,7 +10,7 @@ export const GET: CromoHandler = ({ matchedRoute }) => {
     .query('SELECT id, number, title, mp3Url, mp3UrlInstr, mp3Filename FROM hymn WHERE id = ?1')
     .get(hymnId)
 
-  if (!hymn) return Response.json({ error: 'Hymn not found' }, 404)
+  if (!hymn) return response.status(404).json({ error: 'Hymn not found' })
 
   let history = db
     .query(`
@@ -30,5 +31,9 @@ export const GET: CromoHandler = ({ matchedRoute }) => {
       }
     }))
 
-  return Response.json({ hymn, history })
+  response.json({ hymn, history })
 }
+
+export const use: CromoMiddleware[] = [
+  cors
+]
