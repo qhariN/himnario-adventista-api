@@ -1,6 +1,5 @@
 import Database from 'bun:sqlite'
-import type { CromoHandler, CromoMiddleware } from 'cromo'
-import { cors } from '../../src/middleware/cors'
+import type { CromoHandler } from 'cromo'
 
 export const GET: CromoHandler = ({ responseInit }) => {
   const db = new Database('./src/database/himnario.db')
@@ -8,7 +7,3 @@ export const GET: CromoHandler = ({ responseInit }) => {
 
   return Response.json(query.all(), responseInit)
 }
-
-export const use: CromoMiddleware[] = [
-  cors
-]
