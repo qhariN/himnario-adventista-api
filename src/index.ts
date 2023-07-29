@@ -3,7 +3,7 @@ import { cors } from './middleware/cors'
 
 const cromo = new Cromo()
 
-cromo.setMiddleware(cors)
+cromo.setMiddleware([cors])
 
 cromo.listen(port => {
   console.log(`Listening on port ${port}`)
