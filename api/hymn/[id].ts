@@ -11,24 +11,38 @@ export const GET: CromoHandler = ({ params, responseInit }) => {
 
   if (!hymn) return Response.json({ error: 'Hymn not found' }, 404)
 
-  let history = db
+  let verses = db
     .query(`
-      SELECT position, timestamp, verse.number, verse.content
-      FROM history
-        INNER JOIN verse ON verse.id = history.verseId
-        INNER JOIN hymn ON hymn.id = verse.hymnId
-      WHERE hymn.id = ?1
-      ORDER BY history.position ASC
+      SELECT id, number
+      FROM verse
+      WHERE hymnId = ?1
+      ORDER BY number ASC
     `)
     .all(id)
-    .map((verseHistory: any) => ({
-      position: verseHistory.position,
-      timestamp: verseHistory.timestamp,
-      verse: {
-        number: verseHistory.number,
-        content: verseHistory.content
-      }
-    }))
 
-  return Response.json({ hymn, history }, responseInit)
+  verses = verses.map((verse: any) => {
+    let content = db
+      .query(`
+        SELECT id, content
+        FROM verseContent
+        WHERE verseId = ?1
+        ORDER BY ordering ASC
+      `)
+      .all(verse.id)
+
+    return { ...verse, content }
+  })
+
+  let sequence = db
+    .query(`
+      SELECT vs.id, vs.timestamp, vs.verseContentId
+      FROM verseSequence vs
+      	INNER JOIN verseContent vc ON vc.id = vs.verseContentId
+        INNER JOIN verse v ON v.id = vc.verseId
+      WHERE v.hymnId = ?1
+      ORDER BY vs.position ASC
+    `)
+    .all(id)
+
+  return Response.json({ ...hymn, verses, sequence }, responseInit)
 }
