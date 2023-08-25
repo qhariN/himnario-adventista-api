@@ -21,7 +21,7 @@ export const GET: CromoHandler = ({ params, responseInit }) => {
     .all(id)
 
   verses = verses.map((verse: any) => {
-    let content = db
+    let contents = db
       .query(`
         SELECT id, content
         FROM verseContent
@@ -30,7 +30,7 @@ export const GET: CromoHandler = ({ params, responseInit }) => {
       `)
       .all(verse.id)
 
-    return { ...verse, content }
+    return { ...verse, contents }
   })
 
   let sequence = db
