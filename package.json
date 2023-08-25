@@ -26,6 +26,6 @@
   },
   "type": "module",
   "dependencies": {
-    "cromo": "^0.2.1"
+    "cromo": "^0.3.1"
   }
 }

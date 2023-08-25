@@ -5,6 +5,6 @@ const cromo = new Cromo()
 
 cromo.setMiddleware([cors])
 
-cromo.listen(port => {
+cromo.start(port => {
   console.log(`Listening on port ${port}`)
 })
