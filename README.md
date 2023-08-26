@@ -71,6 +71,7 @@ interface HymnSequence =  {
   sequence: {
     id:             number  // ID de la secuencia
     timestamp:      number  // marca de tiempo en milisegundos del mp3
+    verseId:        number  // ID de la estrofa
     verseContentId: number  // ID del contenido de la estrofa
   }[]
 }
