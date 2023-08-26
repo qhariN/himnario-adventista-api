@@ -35,7 +35,7 @@ export const GET: CromoHandler = ({ params, responseInit }) => {
 
   let sequence = db
     .query(`
-      SELECT vs.id, vs.timestamp, vs.verseContentId
+      SELECT vs.id, vs.timestamp, vs.verseContentId, vc.verseId
       FROM verseSequence vs
       	INNER JOIN verseContent vc ON vc.id = vs.verseContentId
         INNER JOIN verse v ON v.id = vc.verseId
