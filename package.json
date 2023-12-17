@@ -1,6 +1,6 @@
 {
   "name": "himnario-api",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "jhormanrus",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
   },
   "module": "index.ts",
   "devDependencies": {
+    "@biomejs/biome": "1.4.1",
     "bun-types": "latest"
   },
   "bugs": {
@@ -22,7 +23,8 @@
   ],
   "license": "ISC",
   "scripts": {
-    "start": "bun src/index.ts"
+    "start": "bun src/index.ts",
+    "lint:fix": "biome check . --apply"
   },
   "type": "module",
   "dependencies": {
