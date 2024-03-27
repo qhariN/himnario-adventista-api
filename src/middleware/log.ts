@@ -1,4 +1,4 @@
-import { CromoMiddleware } from 'cromo'
+import type { CromoMiddleware } from 'cromo'
 
 export const log: CromoMiddleware = async (context, next) => {
   const { request, url } = context

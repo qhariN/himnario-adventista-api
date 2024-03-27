@@ -1,4 +1,4 @@
-import { CromoMiddleware } from 'cromo'
+import type { CromoMiddleware } from 'cromo'
 
 export const cors: CromoMiddleware = (context, next) => {
   const { request, responseInit } = context

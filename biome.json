@@ -1,13 +1,16 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.6.3/schema.json",
   "linter": {
     "rules": {
       "all": true,
-      "suspicious": {
-        "noConsoleLog": "off"
+      "style": {
+        "useFilenamingConvention": "off"
       },
       "nursery": {
         "all": false
+      },
+      "suspicious": {
+        "noConsoleLog": "off"
       }
     }
   },
@@ -17,7 +20,8 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "semicolons": "asNeeded"
+      "semicolons": "asNeeded",
+      "trailingComma": "all"
     }
   }
 }

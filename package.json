@@ -8,19 +8,15 @@
   },
   "module": "index.ts",
   "devDependencies": {
-    "@biomejs/biome": "1.4.1",
-    "bun-types": "latest"
+    "@biomejs/biome": "1.6.3",
+    "@types/bun": "latest"
   },
   "bugs": {
     "url": "https://github.com/jhormanrus/himnario-adventista-api/issues"
   },
   "description": "Himnario Adventista API",
   "homepage": "https://github.com/jhormanrus/himnario-adventista-api#readme",
-  "keywords": [
-    "himnario",
-    "adventista",
-    "api"
-  ],
+  "keywords": ["himnario", "adventista", "api"],
   "license": "ISC",
   "scripts": {
     "start": "bun src/index.ts",
@@ -28,6 +24,6 @@
   },
   "type": "module",
   "dependencies": {
-    "cromo": "^0.3.1"
+    "cromo": "^0.3.2"
   }
 }
