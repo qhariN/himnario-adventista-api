@@ -8,7 +8,7 @@ export const log: CromoMiddleware = async (context, next) => {
   const method = request.method.padStart(7)
   const status = response.status
   const path = url.pathname
-  console.log(`${datetime} ${method}:${status} -> ${path}`)
+  console.info(`${datetime} ${method}:${status} -> ${path}`)
 
   return response
 }
